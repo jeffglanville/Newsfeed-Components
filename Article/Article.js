@@ -115,6 +115,7 @@ const data = [
 
 const articles = document.querySelector('.articles');
 
+articles.forEach()
 
 
 function createArticle() {
