@@ -113,21 +113,29 @@ const data = [
 
 */
 
-const article = document.querySelector('.articles');
+const articles = document.querySelector('.articles');
+
 
 
 function createArticle() {
+  const articles = document.createElement('div');
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
-  const articleDate = document.createElement('date');
-  const articleParagraph = document.createElement('p');
+  const articleDate = document.createElement('p');
+  const articleParagraph1 = document.createElement('p');
+  const articleParagraph2 = document.createElement('p');
+  const articleParagraph3 = document.createElement('p');
   const expandButton = document.createElement('span');
 
+  articles.appendChild(article);
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
-  article.appendChild(articleParagraph);
+  article.appendChild(articleParagraph1);
+  article.appendChild(articleParagraph2);
+  article.appendChild(articleParagraph3);
   article.appendChild(expandButton);
 
+  articles.classList.add('articles');
   article.classList.add('article');
   articleParagraph.classList.add('date');
   expandButton.classList.add('expandButton');
@@ -136,5 +144,5 @@ function createArticle() {
     articleOpen.classList.toggle('article-open');
     articleClose.classList.toggle('article close');
   })
-  return article;
+  return articles;
 }
