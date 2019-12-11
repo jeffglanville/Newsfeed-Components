@@ -34,25 +34,31 @@ let menuItems = [
 
 */
 
+
+//add content to the menu
 const menu = document.querySelector('.menu');
-
+//iterating through the menuItems
 for(i = 0; i < menuItems.length; i++){
-  const menuItems = document.createElement('li');
-  menu.appendChild(menuItems);
+  const array = document.createElement('li');
+  // console.log(array)menuItems;
 }
-
+//creating the menu to go in the menuButton
 function createMenu(menuItems) {
   const menu = document.createElement('div');
   const unorderedList = document.createElement('ul');
 
+  menuButton.appendChild('menu');
+
 
   menu.classList.add('menu');
+  menuButton.classList.add('menu-button');
 
   const menuButton = document.querySelector('.menu-button');
   menuButton.addEventListener('click', (event) => {
-    console.log('Button Clicked!')
-    menuButton.classList.toggle('menu--open')
+    // console.log('The Menu Button has been clicked');
+    menuButton.classList.toggle('menu--open');
   });
+
   return menu;
 }
 
