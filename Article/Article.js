@@ -115,12 +115,12 @@ const data = [
 
 const articles = document.querySelector('.articles');
 
-articles.forEach((article) => {
-  articles.appendChild(createArticle(data.title, data.date, data.paragraph1, data.paragraph2, data.paragraph3));
-});
+data.map((a) => {
+  return articles.appendChild(createArticle(a.title, a.date, a.firstParagraph, a.SecondParagraph, a.thirdParagraph))
+})
 
-function createArticle() {
-  const articles = document.createElement('div');
+function createArticle(title, date, p1, p2, p3) {
+
   const article = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
@@ -129,7 +129,6 @@ function createArticle() {
   const articleParagraph3 = document.createElement('p');
   const expandButton = document.createElement('span');
 
-  articles.appendChild(article);
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
   article.appendChild(articleParagraph1);
@@ -137,14 +136,23 @@ function createArticle() {
   article.appendChild(articleParagraph3);
   article.appendChild(expandButton);
 
-  articles.classList.add('articles');
+
   article.classList.add('article');
-  articleParagraph.classList.add('date');
+  articleDate.classList.add('date');
   expandButton.classList.add('expandButton');
 
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleParagraph1.textContent = p1;
+  articleParagraph2.textContent = p2;
+  articleParagraph3.textContent = p3;
+  expandButton.textContent = 'Click to read the article';
+
   expandButton.addEventListener('click', (event) => {
-    articleOpen.classList.toggle('article-open');
-    articleClose.classList.toggle('article close');
+    // article.classList.toggle('article-open');
+    event.target.parentElement.classList.toggle('article-open');
   })
-  return articles;
+
+  return article;
 }
+
